@@ -13,6 +13,7 @@ import { ProfileSection } from "./components/sections/profile-section";
 import { SavedSection } from "./components/sections/saved-section";
 import { ListDetail } from "./components/detail-screens/list-detail";
 import { ShopDetail } from "./components/detail-screens/shop-detail";
+import { CreateShop } from "./components/create-forms/create-shop";
 
 export default function ShoppingApp() {
   const [currentSection, setCurrentSection] = useState("home");
@@ -465,7 +466,15 @@ export default function ShoppingApp() {
   if (createScreen === "list") {
     return <CreateList onClose={handleCreateClose} />;
   }
-
+  if (createScreen === "shop") {
+    return (
+      <CreateShop
+        onClose={handleCreateClose}
+        uploadedImages={uploadedImages}
+        triggerImageUpload={triggerImageUpload}
+      />
+    );
+  }
   const renderContent = () => {
     switch (currentSection) {
       case "home":
@@ -528,6 +537,7 @@ export default function ShoppingApp() {
                 feedPosts={feedPosts}
                 likedPosts={likedPosts}
                 toggleLike={toggleLike}
+                onNewPostClick={() => setCreateScreen("post")} // Pass the handler to open CreatePost
               />
             </div>
           </>
@@ -574,7 +584,7 @@ export default function ShoppingApp() {
           bottom: "45px", // Center of the create button is 45px from bottom
           left: "50%",
           transform: "translateX(-50%)",
-          zIndex: 49, // Below the bottom navigation bar
+          zIndex: 100, // Below the bottom navigation bar
           pointerEvents: showCreateMenu ? "auto" : "none", // Allow clicks only when visible
         }}
       >

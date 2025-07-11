@@ -43,8 +43,8 @@ export function BottomNavigation({
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
-                  minWidth: "auto", // Allow content to define width
-                  // No top positioning here, let the button handle its own elevation
+                  minWidth: "auto",
+                  zIndex: 9999,
                 }}
               >
                 <Button
@@ -55,14 +55,13 @@ export function BottomNavigation({
                     width: "60px",
                     minWidth: "auto",
                     borderRadius: "50%",
-                    backgroundColor: showCreateMenu ? "#FFD700" : "transparent",
+                    backgroundColor: "#FFD700",
+                    // backgroundColor: showCreateMenu ? "#FFD700" : "transparent",
                     border: "2px solid white",
                     boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
                     color: showCreateMenu ? "#1F2937" : "#6B7280",
                     "&:hover": {
-                      backgroundColor: showCreateMenu
-                        ? "#E6B800"
-                        : "transparent",
+                      backgroundColor: showCreateMenu ? "#E6B800" : "#FFC100",
                       color: showCreateMenu ? "#1F2937" : "#1F2937",
                     },
                     transition:

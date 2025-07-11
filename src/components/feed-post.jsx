@@ -1,13 +1,14 @@
-"use client"
-import Card from "@mui/material/Card"
-import CardContent from "@mui/material/CardContent"
-import Button from "@mui/material/Button"
-import Avatar from "@mui/material/Avatar"
-import { Heart, MapPin } from "lucide-react"
-
+"use client";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Button from "@mui/material/Button";
+import Avatar from "@mui/material/Avatar";
+import { Heart, MapPin } from "lucide-react";
+import img1 from "../assets/images/locally.png";
 export function FeedPost({ post, isLiked, onToggleLike }) {
+  
   return (
-    <Card sx={{ bgcolor: "#1F2937", borderColor: "#374151", border: "1px solid" }}>
+    <Card sx={{ bgcolor: "#FDFDFD" }}>
       <CardContent sx={{ padding: "0" }}>
         <div className="p-4">
           <div className="flex items-center space-x-3 mb-3">
@@ -19,14 +20,14 @@ export function FeedPost({ post, isLiked, onToggleLike }) {
               {post.username.charAt(1).toUpperCase()}
             </Avatar>
             <div>
-              <p className="font-semibold text-white">{post.username}</p>
+              <p className="font-semibold text-gray-800">{post.username}</p>
               <p className="text-sm text-gray-400">{post.storeName}</p>
             </div>
           </div>
         </div>
 
         <div className="w-full h-48 bg-gray-700 overflow-hidden">
-          <img src={post.image || "/placeholder.svg"} alt="Post" className="w-full h-full object-cover" />
+          <img src={img1} alt="Post" className="w-full h-full object-cover" />
         </div>
 
         <div className="p-4">
@@ -34,7 +35,9 @@ export function FeedPost({ post, isLiked, onToggleLike }) {
             <div className="flex items-center space-x-4">
               <Heart
                 className={`w-6 h-6 cursor-pointer transition-colors ${
-                  isLiked ? "text-red-500 fill-red-500" : "text-gray-400 hover:text-red-500"
+                  isLiked
+                    ? "text-red-500 fill-red-500"
+                    : "text-gray-400 hover:text-red-500"
                 }`}
                 onClick={() => onToggleLike(post.id, "post", post)}
               />
@@ -44,8 +47,11 @@ export function FeedPost({ post, isLiked, onToggleLike }) {
           </div>
 
           <p className="text-sm text-gray-400 mb-2">
-            Liked by <span className="font-semibold">{post.likedBy.join(", ")}</span> and{" "}
-            <span className="font-semibold">{post.likes - post.likedBy.length} more</span>
+            Liked by{" "}
+            <span className="font-semibold">{post.likedBy.join(", ")}</span> and{" "}
+            <span className="font-semibold">
+              {post.likes - post.likedBy.length} more
+            </span>
           </p>
 
           <Button
@@ -62,10 +68,10 @@ export function FeedPost({ post, isLiked, onToggleLike }) {
             View Store on Map
           </Button>
 
-          <p className="text-white text-sm mb-2">{post.caption}</p>
+          <p className="text-gray-600 text-sm mb-2">{post.caption}</p>
           <p className="text-purple-400 text-sm">{post.hashtags}</p>
         </div>
       </CardContent>
     </Card>
-  )
+  );
 }
