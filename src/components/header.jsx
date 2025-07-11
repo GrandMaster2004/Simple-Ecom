@@ -13,7 +13,7 @@ import {
 
 export function Header({ currentSection, currentTab, setCurrentTab }) {
   return (
-    <div className="px-4 pb-0 pt-4 sm:px-6" style={{ backgroundColor: "#1A1A1A" }}>
+    <div className="px-4 pt-6 sm:px-6" style={{ backgroundColor: "#1A1A1A" }}>
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center space-x-3">
           <Avatar

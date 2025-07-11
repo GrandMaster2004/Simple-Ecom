@@ -1,4 +1,4 @@
-// "use client";
+"use client";
 
 import { useState, useRef } from "react";
 import { Header } from "./components/header";
@@ -493,8 +493,14 @@ export default function ShoppingApp() {
       case "saved":
         return (
           <>
-            <div className="px-4 py-6 sm:px-6">
-              <h1 className="text-xl font-semibold text-white mb-6">
+            <div
+              className="px-4 py-6 sm:px-6 "
+              style={{ backgroundColor: "#1A1A1A" }}
+            >
+              <h1
+                className="text-xl font-semibold text-white mb-6"
+                style={{ color: "#FEE39A" }}
+              >
                 Saved Items
               </h1>
             </div>
@@ -506,8 +512,16 @@ export default function ShoppingApp() {
       case "feeds":
         return (
           <>
-            <div className="px-4 py-6 sm:px-6">
-              <h1 className="text-xl font-semibold text-white mb-6">Feeds</h1>
+            <div
+              className="px-4 py-6 sm:px-6"
+              style={{ backgroundColor: "#1A1A1A" }}
+            >
+              <h1
+                className="text-xl font-semibold  mb-6"
+                style={{ color: "#FEE39A" }}
+              >
+                Feeds
+              </h1>
             </div>
             <div className="px-4 pb-24 sm:px-6">
               <FeedsSection
@@ -521,7 +535,7 @@ export default function ShoppingApp() {
       case "profile":
         return (
           <>
-            <div className="py-6">
+            <div className="py-6" style={{ backgroundColor: "#1A1A1A" }}>
               <h1 className="text-xl font-semibold text-white mb-6 px-4">
                 My Profile
               </h1>
@@ -539,7 +553,7 @@ export default function ShoppingApp() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
+    <div className="min-h-screen bg-white text-black">
       {/* Hidden file input for image uploads */}
       <input
         type="file"

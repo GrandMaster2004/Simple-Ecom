@@ -6,7 +6,7 @@ import Button from "@mui/material/Button";
 import Chip from "@mui/material/Chip";
 import Box from "@mui/material/Box";
 import { MapPin } from "lucide-react";
-// import home from "../assets/images/home.png";
+import home from "../assets/images/home.png";
 export function FeaturedShopCarousel() {
   const featuredShopsData = [
     {
@@ -14,21 +14,21 @@ export function FeaturedShopCarousel() {
       name: "Fresh Basket",
       location: "15km Away",
       description: "Your daily dose of freshness, handpick...",
-      image: "/images/home.png",
+      image: home,
     },
     {
       id: 2,
       name: "Green Grocer",
       location: "5km Away",
       description: "Organic produce delivered to your door...",
-      image: "/placeholder.svg?height=100&width=120", // Placeholder for another shop image
+      image: home, // Placeholder for another shop image
     },
     {
       id: 3,
       name: "Urban Farm",
       location: "8km Away",
       description: "Farm-fresh vegetables and fruits daily...",
-      image: "/placeholder.svg?height=100&width=120", // Placeholder for another shop image
+      image: home, // Placeholder for another shop image
     },
   ];
 
@@ -57,7 +57,6 @@ export function FeaturedShopCarousel() {
           width: "100%", // Take full width of parent
           maxWidth: "1440px", // Max width for larger screens
           marginX: "1rem",
-
           display: "flex", // Use flexbox for layout
           alignItems: "center", // Vertically align items
           padding: "1rem", // Padding inside the card
@@ -71,7 +70,7 @@ export function FeaturedShopCarousel() {
           sx={{
             flexShrink: 0, // Prevent image from shrinking
             width: "120px", // Fixed width for the image container
-            height: "200px", // Fixed height
+            height: "100px", // Fixed height
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -79,7 +78,7 @@ export function FeaturedShopCarousel() {
           }}
         >
           <img
-            src="../assets/images/home.png"
+            src={currentFeaturedShop.image || "/placeholder.svg"}
             alt={currentFeaturedShop.name}
             style={{
               width: "100%",

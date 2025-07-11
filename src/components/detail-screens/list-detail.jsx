@@ -1,10 +1,27 @@
 "use client"
+import { useState } from "react"
 import Card from "@mui/material/Card"
 import CardContent from "@mui/material/CardContent"
 import Button from "@mui/material/Button"
+import Checkbox from "@mui/material/Checkbox" // Import Checkbox
+import FormControlLabel from "@mui/material/FormControlLabel" // For checkbox label
 import { ChevronLeft, Plus } from "lucide-react"
 
 export function ListDetail({ items, title, onBack }) {
+  const [checkedItems, setCheckedItems] = useState(new Set())
+
+  const handleCheckboxChange = (itemId) => {
+    setCheckedItems((prevCheckedItems) => {
+      const newCheckedItems = new Set(prevCheckedItems)
+      if (newCheckedItems.has(itemId)) {
+        newCheckedItems.delete(itemId)
+      } else {
+        newCheckedItems.add(itemId)
+      }
+      return newCheckedItems
+    })
+  }
+
   return (
     <div className="min-h-screen bg-gray-900 text-white">
       <div className="flex items-center p-4 border-b border-gray-700">
@@ -23,16 +40,34 @@ export function ListDetail({ items, title, onBack }) {
           {items.map((item) => (
             <Card key={item.id} sx={{ bgcolor: "#1F2937", borderColor: "#374151", border: "1px solid" }}>
               <CardContent sx={{ padding: "1rem" }}>
-                <div className="flex items-center space-x-4">
-                  <div className="text-3xl">{item.image}</div>
-                  <div className="flex-1">
-                    <h3 className="font-semibold text-white mb-1">{item.name}</h3>
-                    <p className="text-sm text-gray-400 mb-1">{item.brand}</p>
-                    <div className="flex space-x-4 text-sm text-gray-400">
-                      <span>{item.quantity}</span>
-                      <span>{item.size}</span>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-4">
+                    <div className="text-3xl">{item.image}</div>
+                    <div className="flex-1">
+                      <h3 className="font-semibold text-white mb-1">{item.name}</h3>
+                      <p className="text-sm text-gray-400 mb-1">{item.brand}</p>
+                      <div className="flex space-x-4 text-sm text-gray-400">
+                        <span>{item.quantity}</span>
+                        <span>{item.size}</span>
+                      </div>
                     </div>
                   </div>
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={checkedItems.has(item.id)}
+                        onChange={() => handleCheckboxChange(item.id)}
+                        sx={{
+                          color: "#A78BFA", // Purple color for unchecked
+                          "&.Mui-checked": {
+                            color: "#8B5CF6", // Darker purple when checked
+                          },
+                        }}
+                      />
+                    }
+                    label="" // No visible label next to checkbox
+                    sx={{ margin: 0 }} // Remove default margin
+                  />
                 </div>
               </CardContent>
             </Card>

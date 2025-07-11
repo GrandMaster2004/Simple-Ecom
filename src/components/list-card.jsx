@@ -4,12 +4,12 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box"; // For the image container
 import { Package, CheckSquare } from "lucide-react"; // Import new icons
-
+import milk from "../assets/images/milk.png";
 export function ListCard({ category, onView }) {
   return (
     <Card
       sx={{
-        bgcolor: "#F8F8F8", // Light background
+        bgcolor: "#F9F6EC", // Light background
         borderColor: "transparent",
         boxShadow: "0px 2px 4px rgba(0,0,0,0.1)", // Subtle shadow
         borderRadius: "12px", // Rounded corners
@@ -22,6 +22,7 @@ export function ListCard({ category, onView }) {
       }}
     >
       <CardContent sx={{ padding: "1rem", flexGrow: 1, paddingBottom: "70px" }}>
+        {" "}
         {/* Added paddingBottom for image */}
         <h3
           className="font-semibold"
@@ -35,11 +36,11 @@ export function ListCard({ category, onView }) {
         >
           <div className="flex items-center space-x-1">
             <Package className="w-4 h-4" />
-            <span style={{ color: "#3D3D3D" }}>{category.items} Items</span>
+            <span>{category.items} Items</span>
           </div>
           <div className="flex items-center space-x-1">
             <CheckSquare className="w-4 h-4" />
-            <span style={{ color: "#3D3D3D" }}>{category.progress}% done</span>
+            <span>{category.progress}% done</span>
           </div>
         </div>
         <Button
@@ -66,7 +67,7 @@ export function ListCard({ category, onView }) {
       {/* Product Image at the bottom */}
       <Box
         component="img"
-        src={"/images/list-card-image.png"} // Reference the added image asset
+        src={milk} // Reference the added image asset
         alt="Fresh picks"
         sx={{
           position: "absolute",
