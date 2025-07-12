@@ -14,6 +14,7 @@ import { SavedSection } from "./components/sections/saved-section";
 import { ListDetail } from "./components/detail-screens/list-detail";
 import { ShopDetail } from "./components/detail-screens/shop-detail";
 import { CreateShop } from "./components/create-forms/create-shop";
+import { PostDetail } from "./components/detail-screens/post-detail";
 
 export default function ShoppingApp() {
   const [currentSection, setCurrentSection] = useState("home");
@@ -28,6 +29,7 @@ export default function ShoppingApp() {
   const [uploadedImages, setUploadedImages] = useState({});
   const fileInputRef = useRef(null);
   const [currentImageUpload, setCurrentImageUpload] = useState("");
+  const [viewingItemData, setViewingItemData] = useState(null);
 
   // Data
   const listCategories = [
@@ -417,6 +419,33 @@ export default function ShoppingApp() {
     setShowCreateMenu(false); // Ensure menu is closed
   };
 
+  const handleViewSavedItem = (item) => {
+    setViewingItemData(item.data); // Store the full data of the item
+    if (item.type === "list") {
+      // Determine which list to show based on title or ID
+      if (item.title === "Picnic Prep") {
+        setDetailScreen("picnic");
+      } else if (item.title === "Daily Fresh Picks") {
+        setDetailScreen("daily-picks");
+      } else {
+        // Fallback for other lists if needed
+        setDetailScreen("list-generic");
+      }
+    } else if (item.type === "shop") {
+      setDetailScreen("green-cart"); // Assuming all shops go to this detail for now
+    }
+    if (detailScreen === "post-detail") {
+      return (
+        <PostDetail post={viewingItemData} onBack={handleBackFromDetail} />
+      );
+    }
+  };
+
+  const handleBackFromDetail = () => {
+    setDetailScreen(null);
+    setViewingItemData(null); // Clear viewed item data
+  };
+
   // Handle detail screens
   if (detailScreen === "picnic") {
     return (
@@ -502,19 +531,16 @@ export default function ShoppingApp() {
       case "saved":
         return (
           <>
-            <div
-              className="px-4 py-6 sm:px-6 "
-              style={{ backgroundColor: "#1A1A1A" }}
-            >
-              <h1
-                className="text-xl font-semibold text-white mb-6"
-                style={{ color: "#FEE39A" }}
-              >
+            <div className="px-4 py-6 sm:px-6 bg-black text-white">
+              <h1 className="text-xl font-semibold text-white mb-6">
                 Saved Items
               </h1>
             </div>
             <div className="px-4 pb-24 sm:px-6">
-              <SavedSection savedItems={savedItems} />
+              <SavedSection
+                savedItems={savedItems}
+                onViewItem={handleViewSavedItem}
+              />
             </div>
           </>
         );
