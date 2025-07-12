@@ -28,7 +28,7 @@ export function SavedSection({ savedItems, onViewItem }) {
 
   if (savedItems.length === 0) {
     return (
-      <div className="flex flex-col items-center justify-center h-64 text-center">
+      <div className="flex flex-col items-center justify-center h-64 text-center ">
         <Heart className="h-16 w-16 text-gray-600 mb-4" />
         <h3 className="text-lg font-semibold text-white mb-2">
           No Saved Items
@@ -39,7 +39,7 @@ export function SavedSection({ savedItems, onViewItem }) {
   }
 
   return ( 
-    <div className="w-full ">
+    <div className="w-full container flex-col justify-center mx-auto">
       <div className="mt-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 ">
           {filteredItems.map((item) => (

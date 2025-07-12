@@ -7,10 +7,10 @@ import Button from "@mui/material/Button";
 import { Heart } from "lucide-react";
 
 export function SavedItemCard({ savedItem, onToggleLike, onView }) {
-  const isLiked = true; // Items in SavedSection are inherently liked/saved
+  const isLiked = true; 
 
-  // Determine background image/color and main text based on item type
-  let backgroundImage = "/images/saved-shop-card-bg.png"; // Default to shop background
+  
+  let backgroundImage = "/images/saved-shop-card-bg.png"; 
   let categoryLabel = "";
   const mainTitle = savedItem.title;
   const subTitle = savedItem.subtitle;
@@ -18,7 +18,7 @@ export function SavedItemCard({ savedItem, onToggleLike, onView }) {
   let viewButtonText = "View";
 
   if (savedItem.type === "list") {
-    backgroundImage = savedItem.color ? "" : "/images/saved-shop-card-bg.png"; // Use color if available, else default image
+    backgroundImage = savedItem.color ? "" : "/images/saved-shop-card-bg.png";
     categoryLabel = "List";
     showProgress = true;
     viewButtonText = "View List";
@@ -39,7 +39,7 @@ export function SavedItemCard({ savedItem, onToggleLike, onView }) {
         borderRadius: "12px",
         overflow: "hidden",
         width: "100%",
-        paddingBottom: "100%", // Creates a square aspect ratio
+        paddingBottom: "100%", 
         height: 0,
         bgcolor:
           savedItem.type === "list" && savedItem.color

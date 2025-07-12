@@ -15,7 +15,7 @@ import {
   ChevronRight,
   Camera,
 } from "lucide-react"; // Import Camera and Bell
-
+import avtar from "../../assets/images/girl.png";
 export function ProfileSection() {
   const profileOptions = [
     { icon: Heart, label: "Saved", hasChevron: true },
@@ -29,7 +29,7 @@ export function ProfileSection() {
   ];
 
   return (
-    <div className="bg-white text-gray-800 min-h-screen">
+    <div className="bg-white text-gray-800 min-h-screen ">
       {/* Profile Info Section */}
       <div className="flex items-start py-8 px-4">
         <Box
@@ -38,7 +38,7 @@ export function ProfileSection() {
           {" "}
           {/* Added marginRight and flexShrink */}
           <Avatar
-            src={"/images/profile-avatar.png"}
+            src={avtar}
             alt="Koyal Mathew"
             sx={{
               width: 120,

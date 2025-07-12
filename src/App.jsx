@@ -15,6 +15,14 @@ import { ListDetail } from "./components/detail-screens/list-detail";
 import { ShopDetail } from "./components/detail-screens/shop-detail";
 import { CreateShop } from "./components/create-forms/create-shop";
 import { PostDetail } from "./components/detail-screens/post-detail";
+import img1 from "./assets/images/Bag full of vegetables.png";
+import img2 from "./assets/images/Vanity case with products  arrangement.png";
+import milk from "./assets/images/milk.png";
+import img3 from "./assets/images/Front view colorful pencils with pen box and stickers on white desk.png";
+import feed1 from "./assets/images/locally-grown-farming-products-empty-farmers-market-stand (1).png";
+import feed2 from "./assets/images/locally.png";
+import avatar from "./assets/images/front-view-handsome-man-with-glasses.png";
+import avatar1 from "./assets/images/2149461693.png";
 
 export default function ShoppingApp() {
   const [currentSection, setCurrentSection] = useState("home");
@@ -38,7 +46,7 @@ export default function ShoppingApp() {
       title: "Daily Fresh Picks",
       items: 10,
       progress: 70,
-      image: "🥬",
+      image: img1,
       color: "bg-green-500",
     },
     {
@@ -46,7 +54,7 @@ export default function ShoppingApp() {
       title: "Home Needs Kit",
       items: 12,
       progress: 50,
-      image: "🏠",
+      image: img2,
       color: "bg-blue-500",
     },
     {
@@ -54,7 +62,7 @@ export default function ShoppingApp() {
       title: "Self-Care Stock",
       items: 10,
       progress: 70,
-      image: "💄",
+      image: milk,
       color: "bg-pink-500",
     },
     {
@@ -62,7 +70,7 @@ export default function ShoppingApp() {
       title: "College Essentials",
       items: 12,
       progress: 50,
-      image: "📚",
+      image: img3,
       color: "bg-purple-500",
     },
     {
@@ -70,7 +78,7 @@ export default function ShoppingApp() {
       title: "Home Clean-Up",
       items: 10,
       progress: 70,
-      image: "🧽",
+      image: img2,
       color: "bg-yellow-500",
     },
     {
@@ -78,7 +86,7 @@ export default function ShoppingApp() {
       title: "Snacks & Cravings",
       items: 12,
       progress: 50,
-      image: "🍿",
+      image: img1,
       color: "bg-orange-500",
     },
   ];
@@ -88,27 +96,27 @@ export default function ShoppingApp() {
       id: "post1",
       username: "@Meena_GrocerLover",
       storeName: "Fresh Basket, MG Road",
-      image: "/placeholder.svg?height=200&width=300",
+      image: feed1,
       caption:
         "Loved the fresh mangoes here! Also, they're running a 20% off on all fruits this week. Read more...",
       hashtags: "#FreshFruits #DiscountAlert #LocalMarket",
       likes: 37,
       likedBy: ["sibi", "john"],
       timeAgo: "10m ago",
-      avatar: "/placeholder.svg?height=40&width=40",
+      avatar: avatar1,
     },
     {
       id: "post2",
       username: "@AnayaOnTheGo",
       storeName: "Fresh Basket, MG Road",
-      image: "/placeholder.svg?height=200&width=300",
+      image: feed2,
       caption:
         "Loved the fresh mangoes here! Also, they're running a 20% off on all fruits this week. Read more...",
       hashtags: "#FreshFruits #DiscountAlert #LocalMarket",
       likes: 37,
       likedBy: ["sibi", "john"],
       timeAgo: "30m ago",
-      avatar: "/placeholder.svg?height=40&width=40",
+      avatar: avatar,
     },
   ];
 
@@ -514,7 +522,7 @@ export default function ShoppingApp() {
               currentTab={currentTab}
               setCurrentTab={setCurrentTab}
             />
-            <div className="px-4 pb-24 sm:px-6">
+            <div className="px-4 pb-24 sm:px-6 container flex-col justify-center mx-auto">
               <HomeSection
                 currentTab={currentTab}
                 listCategories={listCategories}

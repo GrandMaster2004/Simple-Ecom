@@ -5,9 +5,8 @@ import Box from "@mui/material/Box";
 import { X } from "lucide-react";
 
 export function CreateShop({ onClose }) {
-  // Removed uploadedImages, triggerImageUpload props
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="flex flex-col w-full">
       {/* Header */}
       <div
         className="flex items-center justify-between p-4"
@@ -23,20 +22,27 @@ export function CreateShop({ onClose }) {
         </Button>
       </div>
 
-      {/* Form Content Area */}
+      {/* Responsive Form Content */}
       <Box
         sx={{
           flexGrow: 1,
           display: "flex",
           flexDirection: "column",
           padding: "1.5rem",
-          backgroundColor: "#FFF8E1", // Cream/beige background
-          borderRadius: "12px", // Rounded corners
-          border: "1px solid #E0E0E0", // Subtle border
-          margin: "1rem", // Margin from screen edges
-          boxShadow: "0px 4px 10px rgba(0,0,0,0.05)", // Subtle shadow
-          alignItems: "center", // Center content horizontally
-          justifyContent: "center", // Center content vertically
+          backgroundColor: "#FFF8E1",
+          borderRadius: "12px",
+          border: "1px solid #E0E0E0",
+          margin: "1rem auto",
+          boxShadow: "0px 4px 10px rgba(0,0,0,0.05)",
+          alignItems: "center",
+          justifyContent: "center",
+          width: {
+            xs: "90%", // phones
+            sm: "80%", // tablets
+            md: "60%", // small laptops
+            lg: "50%", // desktops
+            xl: "40%", // large screens
+          },
         }}
       >
         <div className="space-y-6 w-full max-w-sm">
@@ -64,13 +70,14 @@ export function CreateShop({ onClose }) {
               }}
             />
           </div>
+
           {/* Shop Type */}
           <div>
             <label className="block text-sm font-medium mb-2 text-gray-800">
               Shop Type:
             </label>
             <TextField
-              placeholder="Enter type of the shop(supermarket,clothing...)"
+              placeholder="Enter type of the shop (supermarket, clothing...)"
               fullWidth
               sx={{
                 "& .MuiInputBase-root": {
@@ -88,6 +95,7 @@ export function CreateShop({ onClose }) {
               }}
             />
           </div>
+
           {/* Location */}
           <div>
             <label className="block text-sm font-medium mb-2 text-gray-800">
@@ -118,8 +126,8 @@ export function CreateShop({ onClose }) {
             variant="contained"
             fullWidth
             sx={{
-              bgcolor: "#E6C677", // Golden button
-              color: "#333", // Dark text
+              bgcolor: "#E6C677",
+              color: "#333",
               paddingY: "0.75rem",
               textTransform: "none",
               fontWeight: "medium",

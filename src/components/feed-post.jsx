@@ -5,7 +5,7 @@ import Button from "@mui/material/Button";
 import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import { Heart, Send, MapPin, MoreHorizontal } from "lucide-react";
-import img1 from "../assets/images/locally.png";
+// import img1 from "../assets/images/locally.png";
 
 export function FeedPost({ post, isLiked, onToggleLike }) {
   const displayLikedBy = post.likedBy.slice(0, 2); // Show first two likers
@@ -28,7 +28,7 @@ export function FeedPost({ post, isLiked, onToggleLike }) {
         <div className="p-4 flex items-center justify-between">
           <div className="flex items-center space-x-3">
             <Avatar
-              src={img1}
+              src={post.avatar}
               alt={post.username}
               sx={{
                 width: 48,
@@ -59,9 +59,9 @@ export function FeedPost({ post, isLiked, onToggleLike }) {
           }}
         >
           <img
-            src={img1 || "/placeholder.svg"}
+            src={post.image}
             alt="Post"
-            className="w-full h-full object-cover"
+            className=" h-[100%] w-[100%] object-cover"
             style={{ borderRadius: "0" }}
           />
           {/* Overlay for gradient and buttons */}

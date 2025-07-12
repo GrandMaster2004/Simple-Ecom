@@ -1,23 +1,29 @@
-"use client"
-import Button from "@mui/material/Button"
-import TextField from "@mui/material/TextField"
-import { X, Camera } from "lucide-react"
+"use client";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import { X, Camera } from "lucide-react";
 
 export function CreatePost({ onClose, uploadedImages, triggerImageUpload }) {
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
-      <div className="flex items-center justify-between p-4 border-b border-gray-700">
+    <div className="min-h-screen bg-white text-black">
+      <div className="flex items-center justify-between p-4 border-b bg-black text-white border-gray-700">
         <h1 className="text-xl font-semibold">Create New Post</h1>
-        <Button variant="text" onClick={onClose} sx={{ minWidth: "auto", padding: "0.5rem", color: "white" }}>
+        <Button
+          variant="text"
+          onClick={onClose}
+          sx={{ minWidth: "auto", padding: "0.5rem", color: "white" }}
+        >
           <X className="h-6 w-6" />
         </Button>
       </div>
 
       <div className="p-4 space-y-6">
         <div>
-          <label className="block text-sm font-medium mb-2">Upload Image:</label>
+          <label className="block text-sm font-medium mb-2">
+            Upload Image:
+          </label>
           <div
-            className="border-2 border-dashed border-gray-600 rounded-lg p-8 text-center cursor-pointer hover:border-purple-500 transition-colors"
+            className="border-2 border-dashed border-gray-600 rounded-lg p-8 text-center text-black cursor-pointer hover:border-purple-500 transition-colors"
             onClick={() => triggerImageUpload("post-image")}
           >
             {uploadedImages["post-image"] ? (
@@ -31,10 +37,13 @@ export function CreatePost({ onClose, uploadedImages, triggerImageUpload }) {
                   variant="outlined"
                   sx={{
                     bgcolor: "transparent",
-                    color: "white",
+                    color: "black",
                     borderColor: "#4B5563",
                     textTransform: "none",
-                    "&:hover": { borderColor: "#A78BFA", bgcolor: "rgba(167, 139, 250, 0.08)" },
+                    "&:hover": {
+                      borderColor: "#A78BFA",
+                      bgcolor: "rgba(167, 139, 250, 0.08)",
+                    },
                   }}
                 >
                   Change image
@@ -48,10 +57,13 @@ export function CreatePost({ onClose, uploadedImages, triggerImageUpload }) {
                   variant="outlined"
                   sx={{
                     bgcolor: "transparent",
-                    color: "white",
+                    color: "gray",
                     borderColor: "#4B5563",
                     textTransform: "none",
-                    "&:hover": { borderColor: "#A78BFA", bgcolor: "rgba(167, 139, 250, 0.08)" },
+                    "&:hover": {
+                      borderColor: "#A78BFA",
+                      bgcolor: "rgba(167, 139, 250, 0.08)",
+                    },
                   }}
                 >
                   Change image
@@ -70,8 +82,8 @@ export function CreatePost({ onClose, uploadedImages, triggerImageUpload }) {
             fullWidth
             sx={{
               "& .MuiInputBase-root": {
-                bgcolor: "#1F2937",
-                color: "white",
+                bgcolor: "#fff",
+                color: "black",
                 borderColor: "#4B5563",
                 "& fieldset": { borderColor: "#4B5563" },
                 "&:hover fieldset": { borderColor: "#A78BFA" },
@@ -91,8 +103,8 @@ export function CreatePost({ onClose, uploadedImages, triggerImageUpload }) {
             fullWidth
             sx={{
               "& .MuiInputBase-root": {
-                bgcolor: "#1F2937",
-                color: "white",
+                bgcolor: "#fff",
+                color: "black",
                 borderColor: "#4B5563",
                 "& fieldset": { borderColor: "#4B5563" },
                 "&:hover fieldset": { borderColor: "#A78BFA" },
@@ -109,8 +121,8 @@ export function CreatePost({ onClose, uploadedImages, triggerImageUpload }) {
             fullWidth
             sx={{
               "& .MuiInputBase-root": {
-                bgcolor: "#1F2937",
-                color: "white",
+                bgcolor: "#fff",
+                color: "black",
                 borderColor: "#4B5563",
                 "& fieldset": { borderColor: "#4B5563" },
                 "&:hover fieldset": { borderColor: "#A78BFA" },
@@ -123,11 +135,16 @@ export function CreatePost({ onClose, uploadedImages, triggerImageUpload }) {
         <Button
           variant="contained"
           fullWidth
-          sx={{ bgcolor: "#8B5CF6", color: "white", paddingY: "0.75rem", "&:hover": { bgcolor: "#7C3AED" } }}
+          sx={{
+            bgcolor: "#8B5CF6",
+            color: "white",
+            paddingY: "0.75rem",
+            "&:hover": { bgcolor: "#7C3AED" },
+          }}
         >
           Create Post
         </Button>
       </div>
     </div>
-  )
+  );
 }

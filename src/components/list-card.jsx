@@ -4,7 +4,7 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box"; // For the image container
 import { Package, CheckSquare } from "lucide-react"; // Import new icons
-import milk from "../assets/images/milk.png";
+// import milk from "../assets/images/milk.png";
 export function ListCard({ category, onView }) {
   return (
     <Card
@@ -67,14 +67,14 @@ export function ListCard({ category, onView }) {
       {/* Product Image at the bottom */}
       <Box
         component="img"
-        src={milk} // Reference the added image asset
+        src={category.image} // Reference the added image asset
         alt="Fresh picks"
         sx={{
           position: "absolute",
-          bottom: 0,
+          bottom: 4,
           left: 0,
           width: "100%",
-          height: "80px", // Fixed height for the image section
+          height: "110px", // Fixed height for the image section
           objectFit: "contain", // Fit image within its bounds
           objectPosition: "bottom", // Align image to the bottom of its container
           zIndex: 0, // Ensure it's in the background, behind text if any accidental overlap

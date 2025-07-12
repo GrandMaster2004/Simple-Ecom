@@ -1,12 +1,12 @@
 "use client";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
-import Box from "@mui/material/Box"; // Import Box for styling
+import Box from "@mui/material/Box";
 import { X } from "lucide-react";
 
 export function CreateList({ onClose }) {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="flex flex-col w-full">
       {/* Header */}
       <div
         className="flex items-center justify-between p-4"
@@ -29,18 +29,23 @@ export function CreateList({ onClose }) {
           display: "flex",
           flexDirection: "column",
           padding: "1.5rem",
-          backgroundColor: "#FFF8E1", // Cream/beige background
-          borderRadius: "12px", // Rounded corners
-          border: "1px solid #E0E0E0", // Subtle border
-          margin: "1rem", // Margin from screen edges
-          boxShadow: "0px 4px 10px rgba(0,0,0,0.05)", // Subtle shadow
-          alignItems: "center", // Center content horizontally
-          justifyContent: "center", // Center content vertically
+          backgroundColor: "#FFF8E1",
+          borderRadius: "12px",
+          border: "1px solid #E0E0E0",
+          margin: "20px auto",
+          boxShadow: "0px 4px 10px rgba(0,0,0,0.05)",
+          alignItems: "center",
+          justifyContent: "center",
+          width: {
+            xs: "90%", // Extra-small devices (phones)
+            sm: "80%", // Small devices (tablets)
+            md: "60%", // Medium devices
+            lg: "50%", // Large devices
+            xl: "40%", // Extra-large screens
+          },
         }}
       >
         <div className="space-y-6 w-full max-w-sm">
-          {" "}
-          {/* Constrain width for form elements */}
           {/* List Name */}
           <div>
             <label className="block text-sm font-medium mb-2 text-gray-800">
@@ -65,13 +70,14 @@ export function CreateList({ onClose }) {
               }}
             />
           </div>
+
           {/* Add List Button */}
           <Button
             variant="contained"
             fullWidth
             sx={{
-              bgcolor: "#E6C677", // Golden button
-              color: "#333", // Dark text
+              bgcolor: "#E6C677",
+              color: "#333",
               paddingY: "0.75rem",
               textTransform: "none",
               fontWeight: "medium",

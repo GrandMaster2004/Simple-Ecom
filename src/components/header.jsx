@@ -10,14 +10,14 @@ import {
   Users,
   ShoppingBag,
 } from "lucide-react";
-
+import girl from "../assets/images/girl.png";
 export function Header({ currentSection, currentTab, setCurrentTab }) {
   return (
     <div className="px-4 pt-6 sm:px-6" style={{ backgroundColor: "#1A1A1A" }}>
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center space-x-3">
           <Avatar
-            src={"/images/home-design.png"} // Using the provided image for the avatar
+            src={girl} // Using the provided image for the avatar
             alt="Koyal Mathew"
             sx={{
               width: 56,

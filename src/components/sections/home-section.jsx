@@ -8,7 +8,7 @@ import { ListCard } from "../list-card";
 import { ShopCard } from "../shop-card";
 import { GroupCard } from "../group-card";
 import { FeaturedShopCarousel } from "../featured-shop-carousel";
-// import patrick from "../../assets/images/patrick.png";
+import patrick from "../../assets/images/patrick.png";
 import Box from "@mui/material/Box";
 import { Package, PackageCheck, PackageX, Edit, Trash2 } from "lucide-react";
 
@@ -32,7 +32,7 @@ export function HomeSection({
 
   const handleShopClick = (shop) => {
     if (shop.name === "The Green Cart") {
-      setDetailScreen("green-cart");
+      // setDetailScreen("green-cart");
     }
   };
 
@@ -51,20 +51,16 @@ export function HomeSection({
           <h2 className="text-lg font-semibold text-black mb-4">Quick Lists</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6 bg">
             {/* Render list categories based on the current tab */}
-            {listsToDisplay.map(
-              (
-                category // MODIFIED LINE: Use listsToDisplay
-              ) => (
-                <ListCard
-                  key={category.id}
-                  category={category}
-                  isLiked={likedItems.has(category.id)}
-                  onToggleLike={toggleLike}
-                  onView={handleListView}
-                  style={{ backgroundColor: "#F9F6EC" }}
-                />
-              )
-            )}
+            {listsToDisplay.map((category) => (
+              <ListCard
+                key={category.id}
+                category={category}
+                isLiked={likedItems.has(category.id)}
+                onToggleLike={toggleLike}
+                onView={handleListView}
+                style={{ backgroundColor: "#F9F6EC" }}
+              />
+            ))}
           </div>
         </div>
 
@@ -103,7 +99,7 @@ export function HomeSection({
                 <div className="flex items-start space-x-3 mb-3">
                   <Box
                     component="img"
-                    src="/images/group-card-picnic.png"
+                    src={patrick}
                     alt="Picnic Day"
                     sx={{
                       width: 72,
@@ -243,7 +239,7 @@ export function HomeSection({
 
   if (currentTab === "shops") {
     return (
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 px-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 px-4 ">
         {shops.map((shop) => (
           <ShopCard
             key={shop.id}
