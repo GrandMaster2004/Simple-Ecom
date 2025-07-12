@@ -1,6 +1,6 @@
 # Shopping List App
 
-A modern, responsive shopping list and community application built with Next.js. This app allows users to manage their shopping lists, discover new shops and products, interact with a feed of posts, organize groups, and save their favorite items.
+A modern, responsive shopping list and community application built with React.js. This app allows users to manage their shopping lists, discover new shops and products, interact with a feed of posts, organize groups, and save their favorite items.
 
 ## ✨ Features
 
